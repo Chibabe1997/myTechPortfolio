@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Tech Goals</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>Welcome To My Website</header>
+    <div class="container">
+      <section class="introduction">
+        <h1 data-testid="slackDisplayName">Chidinma Precious Ojukwu</h1>
+        <img
+          src="./assets/images/profilepic.jpg"
+          data-testid="slackProfilePicture"
+        />
+        <p>
+          Hi! I am Chidinma Precious Ojukwu, A tech enthusiast. I am aspiring to
+          be the best among the best in this field of career.
+        </p>
+      </section>
+      <section class="tech-goals">
+        <h2>My Tech Goals For The Next Two Years</h2>
+        <p>
+          Acquiring new knowledge and improving myself has been one thing I love
+          to do. Below are listed the amazing goals I wish to achieve in this
+          tech field:
+        </p>
+        <ul>
+          <li>
+            Learn and master the basic languages for web development namely:
+            HTML,CSS annd javaScript.
+          </li>
+          <li>
+            Explore the features of javaScript and its framewoks like React and
+            Angular.
+          </li>
+          <li>
+            Attend tech conferences and meetups to network and stay updated with
+            the latest trends.
+          </li>
+          <li>Build and launch my own web application projects.</li>
+          <li>
+            Contribute to open-source projects to enhance my coding skills and
+            collaborate with other developers.
+          </li>
+          <li>
+            Improve my problem-solving skills by practicing algorithms and data
+            structures.
+          </li>
+          <li>
+            Built a healthy career life and also improve my financial status.
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <div class="contactme">
+        <p>
+          You can contact me via email:
+          <a href="mailto:chidinmaojukwu321@gmail.com"
+            >chidinmaojukwu321@gmail.com</a
+          >
+          and as well visit the attached links for further information
+        </p>
+      </div>
+      <div class="hnglinks">
+        <a data-testid="hngLink" href="hng.tech/learn">HNG</a>
+        <a data-testid="keywordLink" href="keyword.dog">Keyword</a>
+        <a data-testid="scrapeanywebLink" href="scrapeanyweb.site"
+          >Scrape Any Web</a
+        >
+      </div>
+      <div id="currentTimeUTC" data-testid="currentTimeUTC"></div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          function getOrdinalSuffix(day) {
+              if (day > 3 && day < 21) return 'th'; 
+              switch (day % 10) {
+                  case 1: return 'st';
+                  case 2: return 'nd';
+                  case 3: return 'rd';
+                  default: return 'th';
+              }
+          }
+
+          function updateDateTime() {
+              let now = new Date();
+
+              let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+              let monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+              var dayOfWeek = daysOfWeek[now.getDay()];
+              var day = now.getDate();
+              var month = monthsOfYear[now.getMonth()]; 
+              var year = now.getFullYear();
+
+              var hours = now.getHours().toString().padStart(2, '0');
+              var minutes = now.getMinutes().toString().padStart(2, '0');
+              var seconds = now.getSeconds().toString().padStart(2, '0');
+
+              var ordinalSuffix = getOrdinalSuffix(day);
+              let currentDate = `${dayOfWeek} ${day}${ordinalSuffix} ${month}, ${year}`;
+              let currentTime = `${hours}:${minutes}:${seconds}`;
+
+              document.getElementById("currentTimeUTC").innerText = `${currentDate} ${currentTime}`;
+          }
+
+          updateDateTime(); 
+          setInterval(updateDateTime, 1000); 
+      });
+    </script>
+  </body>
+</html>
